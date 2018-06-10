@@ -1,0 +1,31 @@
+en:
+  static_pages:
+    info_pages:
+      recruitment:
+        title: Application process
+        para_1:
+          content_1: Maths Beyond Limits 2018 is an international mathematics camp for high school students from all over the world. It takes place 9-21.09.18 in Milówka, Poland. Students can apply as participants or semitutors. The recruitment process starts on
+          start_time: 1.04.2018
+          content_2: " and consists of two parts: Qualifying Quiz and Applicant Questionnaire, which are required to be submitted by the midnight of"
+          end_time: 30.04.2018.
+          content_3: "In the recruitment process we take into account not only applicants’ performance in the Qualifying Quiz and their academic achievements, but also their need to participate in the camp and their potential to benefit from it."
+          info: View the important information about applying
+        qq:
+          header: Qualifying Quiz
+          content: Qualifying Quiz is a set of 7 challenging and inspiring problems which award creative approach and original ideas. Applicants solve them at home and send the solutions through the project's website after registering.
+          # Problems from previous Qualifying Quizzes are available in subpages of respective editions (What is MBL? -> Editions).
+          view: View the Qualifying Quiz
+          submit: Submit your solutions
+          log_to_submit: Log in to submit your solutions
+        aq:
+          header: Applicant Questionnaire
+          content: Applicant Questionnaire is meant to give a measure of the personal motivation of applicants, their level of mathematical maturity and potential. Moreover, the applicants describe there their background and what has led them to become passionate about mathematics, mostly in an essay called Personal Statement. Finally, they have the chance to propose the activities they would like to run in order to contribute to the camp - Camper Talks, Evening Activities or Mathematical Classes.
+          loading: Loading...
+          view: View the Applicant Questionnaire
+          log_to_view: Sign in to see Applicant Questionnaire
+        semitutors:
+          header: Semitutors
+          content: Semitutors are participants who run their own Mathematical Classes. Every applicant is welcome to apply as a semitutor. In order to do so, they are asked to submit their proposal of Mathematical Classes. Semitutors’ applications are considered first; if somebody does not get accepted as a semitutor, they are automatically considered as regular applicants.
+        tutors:
+          header: How to become a tutor?
+          content: If you are not in high school anymore but you want to be a part of Maths Beyond Limits, you can be a tutor. If you want to become one, tell us something about yourself, your mathematical background and classes which you would like to run via an e-mail at mathsbeyondlimits@gmail.com and we will keep in touch with you!

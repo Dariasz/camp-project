@@ -1,0 +1,39 @@
+en:
+  events:
+    index:
+      title: Events
+      show: Show
+      edit: Edit
+      confirm: Confirm
+      unconfirm: Uncofirm
+      delete: Delete
+      activity: Activity
+      new: New event
+      calendar: View calendar
+      search: Search
+      search_title: Title
+      search_category: Category
+    new:
+      title: Create event
+    event_card:
+      lock: Lock
+      unlock: Unlock
+      unlocked: Unlocked
+    form:
+      submit: Submit
+    edit:
+      title: Edit event
+    show:
+      all_day: All day
+      starts_at: Event starts at
+      ends_at: Event ends at
+      date: Date
+      time: Time
+      activity: Activity / Category
+      go_to: Go to activity
+      set_roles: Set roles
+    controller:
+      created: Event was successfully created
+      updated: Event was successfully updated
+      destroyed: Event was successfully destroyed
+      error: Something went wrong

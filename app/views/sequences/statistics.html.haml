@@ -1,0 +1,24 @@
+.ui.segments
+  .ui.violet.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h1.ui.header
+            = page_title! @sequence.sequence_full_name
+
+      .row
+        .column
+          %table.ui.orange.table
+            %thead
+              %th= t('.users')
+              - @sequence.tasks.each do |task|
+                %th= task.name
+              %th= t('.sum')
+
+            %tbody
+              - @users.each do |user|
+                %tr
+                  %td= user.name
+                  - sequence_stats_for_user(@sequence, user).each do |user_task|
+                    %td{class: class_for_user_grade(user_task.grade)}= user_task.grade
+                  %td= sequence_sum_for_user(@sequence, user)

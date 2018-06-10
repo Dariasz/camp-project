@@ -1,0 +1,26 @@
+en:
+  solutions:
+    index:
+      title: All solutions
+      search_name: Search name
+      task_name: Task
+      user_name: User
+      answer: Answer
+      mark: Mark
+      actions: Actions
+      preview_pdf: Show solution
+      set_mark: Set mark
+    my_solutions:
+      title: My solutions
+      task_name: Task
+      serie_name: Serie
+      answer: Answer
+      preview_pdf: Show solution
+    show:
+      edit: Edit this solution
+    form:
+      submit: Submit
+    new:
+      title: New solution of
+    edit:
+      title: Edit solution of

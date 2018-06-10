@@ -1,0 +1,62 @@
+en:
+  activities:
+    index:
+      title: Activities
+      show: Show
+      edit: Edit
+      delete: Delete
+      new: Create activity
+      my_activities: Go to my activities
+      search_title: Title
+      search_category: Category
+      search: Search
+    activity_card:
+      by: by
+      are_you_sure: Are you sure you want to delete this activity?
+      accepted_by: Accepted by
+      confirm: Confirm
+      unconfirm: Defute
+      confirmed: Confirmed
+      unconfirmed: Unconfirmed
+    assistants_popup:
+      add_assistants: Add assistants
+      save_changes: Save changes
+    new:
+      title: New activity
+    form:
+      submit: Submit
+      title: Title
+      description: Description
+      details: Share details of your activity
+      category: Category
+      choose_category: Choose the type of your activity
+      level: Choose difficulty
+      group: What kind of classes will it be?
+      days: How many days would you prefer your class to take?
+    new_modal:
+      add_attachment: Add attachment
+    show:
+      handout: Handout
+      category: Category
+      group: Group
+      level: Level
+      days: Days
+      click: Click here to see
+      materials: Materials
+      are_you_sure: Are you sure you want to delete this?
+      accepted_by: Accepted by
+      at: at
+      contact: Contact
+      Feedbacks_for_activity: "Feedbacks for activity:"
+      average_mark: "Average mark: "
+    my_activities:
+      title: My activities
+      new: Create activity
+      activities: Go to all activities
+      search_title: Title
+      search_category: Category
+      search: Search
+    categories:
+      evening_activity: Evening activity
+      campers_talk: Camper's talk
+      class: Class

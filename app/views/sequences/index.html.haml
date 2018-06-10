@@ -1,0 +1,52 @@
+.ui.segments
+  .ui.violet.very.padded.segment
+    %h1.ui.header
+      = link_to t('.title'), [:sequences]
+    - if can? :create, Sequence
+      .row
+        .column
+          = link_to [:new, :sequence], class: 'ui button violet labeled icon' do
+            %i.add.circle.icon
+            = t('.new')
+    -# = search_form_for @query do |f|
+    -#   .row.padding-top-20.ui.center.aligned.grid
+    -#     .column
+    -#       .ui.search.floating
+    -#         .ui.icon.input
+    -#           = f.search_field :name_cont, placeholder: t('.search_name'), class: 'prompt'
+    -#           %i.search.icon
+    -#       = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+  .ui.violet.very.padded.segment
+    .ui.equal.width.vertically.divided.stackable.grid
+      - @sequences.each do |sequence|
+        .row
+          .column
+            %h1.header
+              = link_to sequence do
+                = sequence.sequence_full_name
+            .subheader
+              - if sequence.opened?
+                = t('.submit_solutions')
+                = datespan [sequence.sequence_start, sequence.sequence_end]
+
+          .column
+            %td
+              = link_to [sequence], class: 'ui violet icon button'  do
+                = t('.show')
+                %i.eye.icon
+              - if can? :create, Sequence
+                = link_to [:edit, sequence], class: 'ui violet basic icon button'  do
+                  = t('.edit')
+                  %i.pencil.icon
+                = link_to sequence, class: 'ui red basic icon button'  do
+                  = t('.delete')
+                  %i.trash.icon
+
+          .column
+            .ui.container
+              = link_to sequence.content.url, target: :blank, class: ' ui right labeled icon violet basic button' do
+                = t('.show_tasks')
+                %i.chevron.right.icon
+
+    = paginate @sequences

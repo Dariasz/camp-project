@@ -1,0 +1,13 @@
+pl:
+  activities:
+    index:
+      title: Aktywności
+      show: Szczegóły
+      edit: Edytuj
+      confirm: Zaakceptuj
+      unconfirm: Odakceptuj
+      delete: Usuń
+    new:
+      title: Nowa katywnosć
+    form:
+      submit: Stwórz nową aktywność

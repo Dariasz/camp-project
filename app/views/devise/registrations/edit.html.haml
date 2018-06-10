@@ -1,0 +1,30 @@
+.ui.middle.aligned.center.aligned.grid
+  .ui.container.segment.raised.very.padded.text.margin-top-50.margin-bottom-50
+    .content.float-right
+      = image_tag current_user.avatar, class: 'ui medium image'
+    %h1.ui.header
+      = current_user.name
+
+    .ui.large.form
+
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = f.error_notification
+        -#.field
+        -#  = f.collection_select :role, User::ROLES, :to_s, :humanize
+        .field
+          = f.input :email, required: true, autofocus: true
+        .field
+          = f.input :password, autocomplete: "on", hint: "leave it blank if you don't want to change it"
+        .field
+          = f.input :password_confirmation, required: false
+        .field
+          = f.input :avatar, multiple: false
+        .two.fields
+          -#.field
+          -#  = f.input :age, required: true
+          -#-#.field
+          -#  = f.input :nationality, as: :select, collection: User.nationalities.keys, input_html: {class:'ui fluid dropdown'}, required: true
+        .field
+          = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+        .actions
+          = f.button :submit, t('.submit'), class: 'ui margin-bottom-20'

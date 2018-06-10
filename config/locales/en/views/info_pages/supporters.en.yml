@@ -1,0 +1,25 @@
+en:
+  static_pages:
+    info_pages:
+      supporters:
+        adamed:
+          title: ADAMED SmartUP
+          desc: "is a scientific and educational programme that aims to give you a chance to discover the fascinating world of both the physical and natural sciences. On their website you can draw inspiration from the best Polish and foreign lecturers. You will get advice on where to study in Poland and abroad and find out what a scientific career looks like. You can enroll to an exceptional science camp and compete for a scientific scholarship."
+        trojsten:
+          title: Trojsten
+          desc: "is a civic association that organizes mathematics, physics and informatics events in Slovakia for elementary and secondary school students. It has supported scientifically gifted youth since 1985, which makes it one of the most experienced organisations of Slovakia in this field. One of its initiatives called KMS (Correspondent Mathematical Seminar) was highly successful among Czech and Slovak students. Moreover, it organises a well established international mathematical competition Náboj in Slovakia, the International Programming Competition ICPS and co-organises the International Mathematical Seminar iKS. Its involvement, popularity among youth and experience are big assets to the process of building international cooperation. "
+        math_camp:
+          title: Canada/USA Mathcamp
+          desc: "is an intensive 5-week-long summer program for mathematically talented high school students, designed to expose these students to the beauty of advanced mathematical ideas and to new ways of thinking. More than just a summer camp, Mathcamp is a vibrant community, made up of a wide variety of people who share a common love of learning and passion for mathematics. At Mathcamp, students can explore undergraduate and even graduate-level topics while building problem-solving skills that will help them in any field they choose to study."
+        fundusz:
+          title: "Polish Children’s Fund's"
+          desc: "mission is to support exceptionally gifted children and teenagers from all of Poland in order to enable them to fully develop their talents and scientific as well as artistic passions. The innovative, original aid programme conducted by the Fund for the last 33 years aims to support young people who cannot find opportunities to fully develop their potential in their local environment (both home and school). In helping them, they strive not only to create suitable conditions for broadening knowledge and enriching abilities, but also to strengthen their motivation and to build in the conviction that their own development can and should serve the society at large."
+        charls_university:
+          title: Charles University
+          desc: "was Partner Organisation of Maths Beyond Limits 2016 organised as a youth exchange in Erasmus+ programme. It also organises manifold conferences, summer schools, camps and competitions for Czech youth such as: an international mathematics competition Náboj, physics team competition FYKOSí Fyziklání and Czech Linguistics Olympiad."
+        joy:
+          title: The Joy of Thinking Foundation
+          desc: "supports gifted Hungarian students in fully developing their talents, reaching their goals in life, and becoming useful members of society. It attains this goals via furthering students’ abilities in math camps, math circles, one-to-one sessions and small group activities. Among the biggest initiatives of the Foundation are: the weekend math camps (started by Lajos Pósa in 1988) and Math is Fun! Camps (abbreviated MaMuT in Hungarian) which started in 2004."
+        visegrad:
+          title: "The International Visegrad Fund"
+          desc: "is an inter­na­tional orga­ni­za­tion based in Bratislava founded by the gov­ern­ments of the Visegrad Group (V4) countries—the Czech Republic, Hungary, the Republic of Poland, and the Slovak Republic. The pur­pose of the fund is to facil­i­tate and pro­mote the devel­op­ment of closer coop­er­a­tion among cit­i­zens and insti­tu­tions in the region as well as between the V4 region and other coun­tries, espe­cially in the Western Balkan and Eastern Partnership regions. The fund operates several grant programs, and also awards individual scholarships, fellowships and artist residencies. Grant sup­port is given to original projects namely in the areas of cul­ture, sci­ence and research, youth exchanges, cross-border cooperation and tourism pro­mo­tion, as well as in other priority areas defined in calls for proposals published on the fund’s website."

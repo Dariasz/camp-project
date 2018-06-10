@@ -1,0 +1,12 @@
+= simple_form_for(@event) do |f|
+  = f.input :title, required: true
+  .fields
+    = f.input :starts_at, wrapper: false
+  .fields
+    = f.input :ends_at, wrapper: false
+  = f.input :all_day
+  = f.input :category, collection: categories_for_events, input_html: {class:'ui fluid dropdown'}
+  = f.association :activity, collection: confirmed_activities, input_html: {class:'ui fluid dropdown'}
+  = f.association :edition, collection: Edition.all, input_html: {class: 'ui fluid dropdown'}
+  .actions
+    = f.button :submit, t('.submit'), class: 'ui button'

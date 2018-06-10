@@ -1,0 +1,32 @@
+<script>
+  $(document).ready(function () {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay',
+      },
+
+      defaultView: 'agendaWeek',
+
+      events: [
+        <% @events.each do |event| %>
+        {
+          title: '<%= event.title %>',
+          start: "<%= event.starts_at.strftime '%Y-%m-%dT%H:%M:%S' %>",
+          end: "<%= event.ends_at.strftime '%Y-%m-%dT%H:%M:%S' %>",
+          allDay: <%= event.all_day %>  ,
+          url: '<%= event.id %>',
+          color: '<%= color_for_calendar(event)%>'
+        },
+        <% end %>
+      ],
+      eventClick: function(event) {
+        if (event.url) {
+          window.open(event.url);
+          return false;
+        }
+      },
+    });
+  })
+</script>

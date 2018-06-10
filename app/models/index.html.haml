@@ -1,0 +1,42 @@
+.ui.segments
+  .ui.teal.very.padded.segment
+    .row
+      %h1.ui.header
+        = link_to t('.title'), :solutions
+      -# = search_form_for @query do |f|
+      -#   .row.padding-top-20.ui.center.aligned.grid
+      -#     .column
+      -#       .ui.search.floating
+      -#         .ui.icon.input
+      -#           = f.search_field :name_cont, placeholder: t('.search_name'), class: 'prompt'
+      -#           %i.search.icon
+      -#       = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+  .ui.teal.very.padded.segment
+    .row
+      .column
+        %table.ui.teal.table
+          %thead
+            %tr
+              %th= t('.task_name')
+              %th= t('.user_name')
+              %th= t('.answer')
+              %th= t('.mark')
+              %th= t('.actions')
+
+          %tbody
+            - @solutions.each do |solution|
+              %tr
+                %td= solution.task.full_task_name
+                %td= solution.author.name
+                %td
+                  = link_to solution.answer, target: :blank, class: 'ui basic teal small button' do
+                    = t('.preview_pdf')
+                    %i.chevron.right.icon
+                %td{ class: "#{class_for_task(solution.task)}" }= solution.mark || '-'
+                %td
+                  = link_to solution.task, class: 'ui basic blue small icon button' do
+                    = t('.show_task')
+                    %i.chevron.right.icon
+    .row
+      = paginate @solutions

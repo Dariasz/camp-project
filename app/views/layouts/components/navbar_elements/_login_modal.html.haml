@@ -1,0 +1,13 @@
+.ui.modal
+  .close.icon
+
+  .ui.tabular.menu
+    .item{'data-tab' => 'sign-in'}= t('layouts.components.navbar.sign_in')
+    .item{'data-tab' => 'sign-up'}= t('layouts.components.navbar.sign_up')
+
+  .ui.tab{'data-tab' => 'sign-in'}
+    = render 'devise/sessions/new'
+  .ui.tab{'data-tab' => 'sign-up'}
+    = render 'devise/registrations/new'
+
+

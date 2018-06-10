@@ -1,0 +1,61 @@
+%h1.ui.header
+  = link_to t('.title'), [:feedbacks]
+.row
+  .column.right.floated
+    .ui.segment
+      .row.ui.center.aligned.grid
+        .column
+          = link_to [:new, :feedback], class: 'ui green labeled icon button' do
+            %i.icon.plus
+            = t('.add_feedback')
+          = link_to [:my_feedbacks, :feedbacks], class: 'ui grey labeled icon button' do
+            %i.external.icon
+            = t('.my_feedbacks')
+          - if current_user.admin? || current_user.has_role?(:organizer)
+            = link_to [:bad_feedbacks, :feedbacks], class: 'ui button grey labeled icon' do
+              %i.icon.thumbs.outline.down
+              = t('.bad_feedbacks')
+
+      = search_form_for @query do |f|
+        .row.padding-top-20.ui.center.aligned.grid
+          .column
+            .ui.search.floating
+              .ui.icon.input
+                = f.search_field :event_title_cont, placeholder: t('.search_event_title'), class: 'prompt'
+                %i.search.icon
+            = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+%table.ui.grey.table.margin-bottom-50
+  %thead
+    %tr
+      %th Event title
+      %th Activity title
+      %th Activity author
+      %th Mark
+      %th Comment
+      %th
+
+  %tbody
+    - @feedbacks.decorate.each do |feedback|
+      %tr
+        %td= feedback.event.try(:title)
+        %td= feedback.event.try(:activity).try(:title)
+        %td= feedback.event.try(:activity).try(:user).try(:name)
+        %td
+          - (1..feedback.mark).each do |star|
+            %i.star.icon.yellow
+          - (1..(5-feedback.mark)).each do |empty_star|
+            %i.empty.star.icon.yellow
+          = "(" + feedback.mark.to_s + ")"
+        %td= feedback.comment
+        %td.float-right
+          = link_to edit_feedback_path(feedback) do
+            .ui.button.green.small
+              %i.icon.pencil
+              = t('.edit')
+          = link_to [feedback], method: :delete, data: {confirm: t('are_you_sure')} do
+            .ui.button.red.small
+              %i.icon.bin.trash
+              = t('.delete')
+
+= paginate @feedbacks

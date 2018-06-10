@@ -1,0 +1,32 @@
+%h1.ui.header
+  = link_to t('.title'), [:my_activities, :activities]
+.row
+  .column.right.floated
+    .ui.segment
+      .row.ui.center.aligned.grid
+        .column
+          - if can? :create, Activity
+            = link_to [:new, :activity], class: 'ui button green labeled icon' do
+              %i.add.circle.icon
+              =t('.new')
+          - if can? :index, Activity
+            = link_to activities_path, class: 'ui pink labeled icon button' do
+              %i.external.icon
+              = t('.activities')
+      = search_form_for @query do |f|
+        .row.padding-top-20.ui.center.aligned.grid
+          .column
+            .ui.search.floating
+              .ui.icon.input
+                = f.search_field :title_cont, placeholder: t('.search_title'), class: 'prompt'
+                %i.search.icon
+            .ui.search.floating
+              .ui.icon.input
+                = f.search_field :category_cont, placeholder: t('.search_category'), class: 'prompt'
+                %i.search.icon
+            = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+
+.ui.two.column.stackable.grid.container.cards.segment.margin-bottom-100
+- @my_activities.each do |activity|
+  = render 'activity_card', activity: activity

@@ -1,0 +1,33 @@
+en:
+  editions:
+    index:
+      title: Editions
+      search_name: Search name
+      new: Add edition
+      search: Search
+      edition_name: Edition
+      deadline: "Recruitment deadline:"
+      apply: Apply for this edition
+      details: Show more details
+      actions: Actions
+      edit: Edit
+      delete: Delete
+    show:
+      edit: Edit
+      delete: Delete
+      apply: Apply for this edition now
+      create_serie: Create new serie
+      series: "Task series:"
+      participants: "All participants:"
+      edition: Edition
+      recruitment_deadline: Recruitment deadline
+      camp: Camp
+      set_roles: Set roles
+    form:
+      example_name: MBL 2016
+      example_place: Milówka
+      submit: Submit
+    new:
+      title: New edition
+    edit:
+      title: Edit edition

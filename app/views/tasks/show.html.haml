@@ -1,0 +1,72 @@
+.ui.segments
+  .ui.violet.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h1.ui.header
+            = page_title! @task.name
+
+      - if can? :create, Task
+        .row
+          .column
+            = link_to [:edit, @task], class: 'ui basic blue large icon button' do
+              = t('.edit')
+              %i.pencil.icon
+            = link_to @task, method: :delete,
+                             data: { confirm: t('.are_you_sure') },
+                             class: 'ui basic red large icon button' do
+              = t('.delete')
+              %i.trash.icon
+
+  .ui.blue.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          .ui.stackable.steps
+            .completed.step
+              = link_to @task.sequence.edition do
+                .content
+                  %h4= t('steps.step_edition')
+                  .description= @task.sequence.edition.name
+            .completed.step
+              = link_to @task.sequence do
+                .content
+                  %h4= t('steps.step_serie')
+                  .description= @task.sequence.name
+            .active.step
+              .content
+                %h4= t('steps.step_task')
+                .description= @task.name
+            .disabled.step
+              .content
+                %h4= t('steps.step_solution')
+
+  - unless @task.solutions.count.zero?
+    .ui.blue.very.padded.segment
+      .ui.equal.width.stackable.grid
+        .row
+          .column
+            %table.ui.blue.table
+              %thead
+                %tr
+                  %th= t('.user_name')
+                  %th= t('.answer')
+                  %th= t('.mark')
+                  %th= t('.actions')
+
+              %tbody
+                = simple_form_for @task do |f|
+                  = f.simple_fields_for :solutions do |sol|
+                    %tr
+                      %td= sol.object.author.name
+                      %td
+                        = link_to(sol.object.answer.url, target: :blank, class: 'ui blue basic button small') do
+                          = t('.preview_pdf')
+                          %i.chevron.right.icon
+                      %td{ class: "#{class_for_task(sol.object.task)}" }= sol.object.mark || '-'
+                      %td
+                        .ui.form
+                          .inline.fields
+                            = sol.input :mark, collection: (0..10).step(0.5), label: false
+                  %tr.center.aligned
+                    %tdr{colspan: 4}= f.submit t('.set_mark'), class: 'ui blue button small'

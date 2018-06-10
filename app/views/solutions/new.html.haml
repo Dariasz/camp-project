@@ -1,0 +1,9 @@
+.ui.container.segment.raised.very.padded.text
+  .column
+    %h2.ui.header
+      .content
+        = t('.title')
+        = task_for_form.name
+
+    .ui.large.form
+      = render 'form'

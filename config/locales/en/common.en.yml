@@ -1,0 +1,15 @@
+en:
+  application_helper:
+    last_logged: " Last logged %{time} days ago"
+    logged_today: " User was logged today "
+    never_logged: " User has never been logged "
+  submit: Submit
+  are_you_sure: "Are you sure?"
+  time:
+    at_hour: "at"
+  errors:
+    end_date_after_start_date: "Must be after start date"
+    recruitment_deadline: Cannot be before edition start
+    camp_start: Cannot be before recruitment deadline
+    camp_end: Cannot be before camp start
+    edition_end: Cannot be before camp end    

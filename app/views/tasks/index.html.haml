@@ -1,0 +1,57 @@
+.row
+  .column.right.floated
+    .ui.blue.very.padded.segment
+      %h1.ui.header
+        = link_to t('.title'), :tasks
+      - if can? :create, Task
+        .row.ui.center.aligned.grid
+          .column
+            = link_to %i[new task], class: 'ui button blue labeled icon' do
+              %i.add.circle.icon
+              = t('.new')
+      -# = search_form_for @query do |f|
+      -#   .row.padding-top-20.ui.center.aligned.grid
+      -#     .column
+      -#       .ui.search.floating
+      -#         .ui.icon.input
+      -#           = f.search_field :name_cont, placeholder: t('.search_name'), class: 'prompt'
+      -#           %i.search.icon
+      -#       = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+.row
+  .column
+    %table.ui.blue.table
+      %thead
+        %tr
+          %th= t('.task_name')
+          %th= t('.task_edition')
+          %th= t('.actions')
+          %th= t('.task_serie')
+          - if can? :create, Task
+            %th= t('.task_count_solutions')
+            %th= t('.task_unmarked_count_solutions')
+
+      %tbody
+      - @tasks.each do |task|
+        %tr
+          %td
+            = link_to task.name, task
+          %td= task.sequence.edition.name
+          %td
+            = link_to [:edit, task], class: 'ui basic blue small icon button' do
+              %i.pencil.icon
+            = link_to task, method: :delete, data: {confirm: t('are_you_sure')},
+                            class: 'ui red basic small icon button' do
+              %i.trash.icon
+          %td
+            = link_to task.sequence.content.try(:url), target: :blank, class: 'ui basic violet small button' do
+              = t('.preview_pdf')
+              %i.eye.icon
+            = link_to task.sequence, class: 'ui basic violet small button' do
+              = task.sequence.name
+              %i.chevron.right.icon
+          - if can? :create, Task
+            %td= task.solutions.count
+            %td{ class: "#{class_for_task(task)}" }= task.solutions.where(mark: nil).count
+
+= paginate @tasks

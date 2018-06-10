@@ -1,0 +1,30 @@
+= simple_form_for(@sequence) do |f|
+  .one.field
+    .field= f.input :name
+  .one.field
+    .field
+      = f.association :edition, collection: Edition.all, as: :select,
+      selected: params[:edition] , input_html: { class: 'ui fluid dropdown' }
+
+  .two.fields
+    .field
+      = t('activerecord.attributes.sequence.sequence_start')
+      = f.date_field :sequence_start
+    .field
+      = t('activerecord.attributes.sequence.sequence_end')
+      = f.date_field :sequence_end
+
+  -# Link to pdf with tasks:
+  .two.fields
+    .field
+      %label.ui.button.purple
+        = t('.upload')
+        %span{style: 'display: none'}
+          = f.file_field :content
+    .field
+      - if @sequence.content.filename.present?
+        = @sequence.content.filename
+      - else
+        No files selected
+  .actions
+    = f.submit 'Submit', class: 'ui violet large button margin-top-40'

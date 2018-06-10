@@ -1,0 +1,27 @@
+.ui.segment.clearing
+  %h1
+    %i.circular.checked.calendar.icon
+    = t('.title')
+    = link_to [:admin, :users], class: 'ui button orange float-right' do
+      %i.circular.icon.users
+      = t('.index')
+
+  %table.ui.orange.table
+    %thead
+      %tr
+        %th
+        %th{colspan: 11} Number of feedbacks per day
+      %tr
+        %th User
+        - (@camp_first_day..@camp_last_day).each do |day|
+          %th= day.to_formatted_s(:short)
+    %tbody
+      -@users.each do |user|
+        %tr
+          %td{class: "#{class_for_user(user)} center aligned"}
+            = user.name_with_role
+            = user.feedbacks.where(comment: [nil, '']).count
+          - (@camp_first_day..@camp_last_day).each do |day|
+            %td{class: "#{class_for_user_and_day(user, day)} center aligned"}= user.feedbacks_per_day(day)
+
+  = paginate @users

@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title= page_title
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %meta{name: 'viewport',  content: 'initial-scale=1, maximum-scale=1'}
+    %meta(charset='utf-8')
+    %meta{ name: 'description', content: t('.meta.description') }
+    %meta{ name: 'keywords', content: t('.meta.keywords') }
+    %meta{ name: 'author', content: t('.meta.author') }
+    %link(href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css')
+    %link(href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css')
+    %link(href='https://fonts.googleapis.com/css?family=Mada:500' rel='stylesheet')
+    %link(href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css')
+    %link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda")
+    %script{async: "", src: 'https://www.googletagmanager.com/gtag/js?id=UA-112003495-1'}
+
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-112003495-1');
+
+  %body
+    = render '/layouts/components/sidebar'
+    .pusher
+      = render '/layouts/components/navbar'
+      - flash.each do |name, msg|
+        - if name == 'notice'
+          .ui.container.success.message.alert
+            = content_tag :div, msg, class: name
+        - else
+          .ui.container.negative.message.alert
+            = content_tag :div, msg, class: name
+      = render '/layouts/components/header'
+
+      - if request.path == '/'
+        = yield
+      - else
+        .ui.middle.aligned.center.aligned.grid.margin-top-30.margin-bottom-120.container
+          = yield
+      = render '/layouts/components/footer' unless request.path == '/'

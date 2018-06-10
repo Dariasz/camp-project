@@ -1,0 +1,35 @@
+.ui.left.menu.sidebar.vertical.inverted.hidden
+  .header.nav-header.item= t('layouts.components.navbar.static.about.title')
+  = link_to purpose_path, class: 'item' do
+    = t('layouts.components.navbar.static.about.purpose')
+  = link_to committee_path, class: 'item' do
+    = t('layouts.components.navbar.static.about.committee')
+
+
+  .header.nav-header.item= t('layouts.components.navbar.static.other_info.title')
+  = link_to overview_path, class: 'item' do
+    = t('layouts.components.navbar.static.other_info.overview')
+  = link_to supporters_path, class: 'item' do
+    = t('layouts.components.navbar.static.other_info.supporters')
+  = link_to testimonials_path, class: 'item' do
+    = t('layouts.components.navbar.static.other_info.testimonials')
+
+  .header.nav-header.item= t('layouts.components.navbar.static.previous.editions')
+  = link_to mbl2016_path, class: 'item' do
+    = t('layouts.components.navbar.static.previous.mbl2016')
+  = link_to mbl2017_path, class: 'item' do
+    = t('layouts.components.navbar.static.previous.mbl2017')
+  = link_to mbl2018_path, class: 'item' do
+    = t('layouts.components.navbar.static.previous.mbl2018')
+
+  .header.nav-header.item
+  = link_to recruitment_path, class: 'item' do
+    = t('layouts.components.navbar.static.recruitment')
+  = link_to contact_path, class: 'item' do
+    = t('layouts.components.navbar.static.contact')
+
+.ui.top.menu.sidebar.vertical.inverted.hidden
+  - if current_user.present?
+    = render '/layouts/components/sidebar_elements/sidebar_user_elements'
+  - else
+    = render '/layouts/components/sidebar_elements/sidebar_guest_elements'

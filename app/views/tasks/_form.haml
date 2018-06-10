@@ -1,0 +1,10 @@
+= simple_form_for(@task) do |f|
+
+  .one.field
+    = f.association :sequence, collection: Sequence.all, as: :select,
+      selected: params[:sequence], input_html: {class:'ui fluid dropdown'}
+
+  .one.field= f.input :name
+
+  .actions
+    = f.submit t('.submit'), class: 'ui blue large button margin-top-40'

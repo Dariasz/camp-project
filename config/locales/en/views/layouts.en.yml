@@ -1,0 +1,53 @@
+en:
+  layouts:
+    components:
+      navbar:
+        sign_in: Sign in
+        sign_up: Sign up
+        language: Language
+        edit: Edit my profile
+        static:
+          about:
+            title: About us
+            committee: Organising committee
+            purpose: Our purpose
+          other_info:
+            title: What is MBL?
+            overview: Overview
+            supporters: Our supporters
+            testimonials: Testimonials
+          previous:
+            editions: Editions
+            mbl2016: MBL 2016
+            mbl2017: MBL 2017
+            mbl2018: MBL 2018
+          recruitment: Application
+          contact: Contact us!
+
+      sidebar_elements:
+        sidebar_user_elements:
+          user_actions: User actions
+          logged_as: Logged as
+          logout: Logout
+          dashboard: Dashboard
+          statics: Statistics
+          database: Database
+          editions: Editions
+          series: Problems
+          calendar: Calendar
+          help: Help
+          faq: FAQ
+          edit: Edit my profile
+          confirm_account: To proceed, check your email to confirm your account
+
+        sidebar_guest_elements:
+          user_actions: User actions
+          sign_in: Sign in
+          sign_up: Sign up
+      footer:
+        created_by: "Created & designed by  © Dariasz"
+    application:
+      meta:
+        keywords: "maths, camp, limit, beyond, activities, math"
+        description: "Mathematical camp"
+        author: "Dariusz Mrok"

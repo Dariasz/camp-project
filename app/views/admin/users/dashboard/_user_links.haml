@@ -1,0 +1,26 @@
+.ui.header
+  %i.archive.green.icon
+  .content= t('.header')
+.ui.divider
+.ui.relaxed.vertically.divided.stackable.grid
+  .row
+    .four.wide.column
+      %b= t('.database')
+    .twelve.wide.column
+      .row
+        .ui.vertical.buttons
+          = link_to t('.editions'), :editions, class: 'ui purple button'
+          = link_to t('.series'), :sequences, class: 'ui violet button'
+  .row
+    .four.wide.column
+      %b= t('.user')
+    .twelve.wide.column
+      = link_to t('.edit_profile'), %i[edit user registration], class: 'ui green button'
+  .row
+    .four.wide.column
+      %b= t('.camp')
+    .twelve.wide.column
+      = link_to t('.calendar'), %i[calendar events], class: 'ui orange button'
+
+  - if can? :create, Task
+    = render 'admin/users/dashboard/organiser_links'

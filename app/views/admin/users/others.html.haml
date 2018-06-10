@@ -1,0 +1,25 @@
+.ui.segment.clearing
+  %h1
+    %i.circular.icon.users
+    = t('.title')
+
+.ui.three.column.stackable.grid.container.cards.segment.link
+  - @users.each do |user|
+    .ui.card
+      .image
+        = image_tag user.avatar
+      .content
+        .header
+          %i{class: "#{user.nationality.to_s.downcase} flag right floated"}
+          = user.name
+        .meta
+          = user.email
+          = ("(#{user.role})")
+      .extra.content
+        %span.right.floated
+          = last_logged(user)
+        %span.left.floated
+          Activites
+          = user.activities.count
+
+  = paginate @users

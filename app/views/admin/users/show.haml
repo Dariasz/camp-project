@@ -1,0 +1,65 @@
+.ui.segments
+  .ui.green.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h1.ui.header= link_to t('.title'), [:dashboard]
+
+  .ui.green.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          .ui.very.padded.segment
+            .ui.header
+              %i.user.green.icon
+              .content= t('.user.header')
+            .ui.divider
+            .ui.relaxed.vertically.divided.stackable.grid
+              .row
+                .four.wide.column
+                  %b= t('.user.name')
+                .twelve.wide.column= @user.name
+              .row
+                .four.wide.column
+                  %b= t('.user.email')
+                .twelve.wide.column= @user.email
+              - if @user.nationality.present?
+                .row
+                  .four.wide.column
+                    %b= t('.user.country')
+                  .twelve.wide.column= @user.nationality
+
+        .column
+          .ui.very.padded.segment
+            = render 'admin/users/dashboard/user_links'
+
+  .ui.green.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          .ui.very.padded.segment
+            .ui.header
+              %i.file.alternate.teal.icon
+              .content
+                = link_to t('.my_solutions'), %i[my_solutions solutions]
+                .ui.label.teal= @my_solutions.count
+            .ui.divider
+            .ui.selection.relaxed.list
+              - @my_solutions.each do |solution|
+                .item
+                  .header= solution.task.full_task_name
+
+        .column
+          .ui.very.padded.segment
+            .ui.header
+              %i.book.purple.icon
+              .content
+                = t('.my_editions')
+                .ui.label.purple= @my_editions.count
+            .ui.divider
+            .ui.selection.relaxed.list
+              - @my_editions.each do |edition|
+                = link_to edition, class: 'item' do
+                  .header
+                    = edition.name
+                    %i.chevron.right.purple.icon

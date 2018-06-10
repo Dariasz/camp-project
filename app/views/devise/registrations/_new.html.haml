@@ -1,0 +1,26 @@
+.ui.middle.aligned.center.aligned.grid
+  .column
+    %h2.ui.green.image.header
+      .content= t('.title')
+
+    .ui.large.form
+      .ui.stacked.segment
+
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+          .field
+            = f.input :email, required: true, autofocus: true
+          .field
+            = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          .field
+            = f.input :first_name, required: true
+          .field
+            = f.input :last_name, required: true
+          -#.field
+          -#  = f.input :age, required: true
+          -#  .field
+            -#  = f.input :nationality, as: :select, collection: User.nationalities.keys, input_html: {class:'ui fluid dropdown'}, required: true
+
+          .actions
+            .ui.button.cancel= t('modal.actions.cancel')
+            = f.submit t('.submit'), class: 'ui green button'

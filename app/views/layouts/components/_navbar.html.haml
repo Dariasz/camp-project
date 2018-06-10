@@ -1,0 +1,22 @@
+.ui.menu.large.inverted.fixed
+  %a.toc.item
+    %i.sidebar.icon
+  .ui.container
+    .item.root
+      = link_to [:root] do
+        = image_tag 'logo_mbl.png', size: '200x30'
+    = render '/layouts/components/navbar_elements/static_links'
+    .right.menu
+    - if current_user.present?
+      = render '/layouts/components/navbar_elements/navbar_user_elements'
+    - else
+      = render '/layouts/components/navbar_elements/login_modal'
+      .item.desktop-display
+        .ui.green.button.login-modal{'data-tab' => 'sign-in'}= t('.sign_in')
+      .item.desktop-display
+        .ui.green.button.login-modal{'data-tab' => 'sign-up'}= t('.sign_up')
+
+      %a.item.user-menu.center.mobile-display
+        %i.icon.setting
+
+.ui.menu.large.inverted

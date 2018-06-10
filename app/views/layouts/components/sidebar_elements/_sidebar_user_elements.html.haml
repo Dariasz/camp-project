@@ -1,0 +1,43 @@
+.item.mobile-display
+  = t('.logged_as')
+  = current_user.try(:first_name)
+
+- if can? :apply_for, Edition
+  = link_to %i[dashboard], class: 'item' do
+    = t('.dashboard')
+    %i.home.green.icon
+
+  -# - if can? :create, Edition
+  -#   = link_to %i[dashboard], class: 'item' do
+  -#     = t('.statistics')
+  -#     %i.chart.bar.outline.grey.icon
+
+  .header.nav-header= t('.database')
+  = link_to :editions, class: 'item' do
+    = t('.editions')
+    %i.book.purple.icon
+  = link_to :sequences, class: 'item' do
+    = t('.series')
+    %i.book.violet.icon
+
+  - if can? :create, Edition
+    = link_to %i[tasks], class: 'item' do
+      = t('.tasks')
+      %i.book.blue.icon
+
+  .header.nav-header= t('.help')
+  = link_to :faq, class: 'item' do
+    = t('.faq')
+    %i.question.circle.outline.pink.icon
+- else
+  .header.nav-header=t('.confirm_account')
+
+.header.nav-header= t('.user_actions')
+
+= link_to [:edit, :user, :registration], class: 'item' do
+  = t('.edit')
+  %i.icon.edit.green
+
+= link_to [:destroy, :user, :session], :method => :delete, class: 'item' do
+  = t('.logout')
+  %i.icon.sign.out.red

@@ -1,0 +1,30 @@
+.ui.segment.clearing
+  %h1
+    = t('.title')
+    = link_to [:my_feedbacks, :feedbacks], class: 'ui button grey float-right' do
+      %i.icon.circular.browser
+      = t('.my_feedbacks')
+    = link_to [:received_feedbacks, :feedbacks], class: 'ui button grey float-right' do
+      %i.icon.circular.browser
+      = t('.received_feedbacks')
+
+%table.ui.grey.table
+  %thead
+    %tr
+      %th Event title
+      %th Activity title
+      %th Mark
+      %th Comment
+
+  %tbody
+    - @bad_feedbacks.each do |feedback|
+      %tr
+        %td= feedback.event.title
+        %td= feedback.event.activity.try(:title)
+        %td
+          - (1..feedback.mark).each do |star|
+            %i.star.icon.yellow
+          - (1..(5-feedback.mark)).each do |empty_star|
+            %i.empty.star.icon.yellow
+          = '(' + feedback.mark.to_s + ')'
+        %td= feedback.comment

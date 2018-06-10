@@ -1,0 +1,14 @@
+pl:
+  activerecord:
+    attributes:
+      user:
+        first_name: Imie
+        last_name: Nazwisko
+        email: Adres e-mail
+        nationality: Kraj
+        age: Wiek
+        password: Hasło
+      activity:
+        title: Tytuł
+        description: Opis
+        user_id: Utworzone

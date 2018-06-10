@@ -1,0 +1,28 @@
+en:
+  tasks:
+    index:
+      title: Tasks database
+      search_name: Search name
+      new: Create task
+      search: Search
+      task_edition: Edition
+      task_serie: Serie
+      task_name: Task name
+      actions: Actions
+      task_count_solutions: Task solutions count
+      task_unmarked_count_solutions: Unmarked solutions
+      preview_pdf: Pdf
+    show:
+      edit: Edit this task
+      user_name: User
+      answer: Answer
+      mark: Mark
+      actions: Actions
+      preview_pdf: Show solution
+      set_mark: Set mark
+    form:
+      submit: Submit
+    new:
+      title: New task
+    edit:
+      title: Edit task

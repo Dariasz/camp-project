@@ -1,0 +1,32 @@
+en:
+  feedbacks:
+    index:
+      title: All feedbacks
+      add_feedback: Add new feedback
+      search_event_title: Event title
+      search: Search
+      my_feedbacks: Go to my feedbacks
+      received_feedbacks: Go to received feedbacks
+      bad_feedbacks: Go to bad feedbacks
+
+    received_feedbacks:
+      title: Received feedbacks
+      my_feedbacks: Go to my feedbacks
+      bad_feedbacks: Go to bad feedbacks
+
+    my_feedbacks:
+      title: My feedbacks
+      add_feedback: Add new feedback
+      received_feedbacks: Go to received feedbacks
+      bad_feedbacks: Go to bad feedbacks
+
+    bad_feedbacks:
+      title: Bad feedbacks
+      received_feedbacks: Go to received feedbacks
+      my_feedbacks: Go to my feedbacks
+
+    edit:
+      title: Edit feedback
+
+    new:
+      title: Create feedback

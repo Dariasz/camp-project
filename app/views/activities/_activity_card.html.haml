@@ -1,0 +1,40 @@
+.ui.card.pink
+  .content
+    .right.floated
+      - if current_user.admin? || current_user.organizer?
+        .ui.small.label.circular.violet
+          = activity.events.count
+      -# - if activity.users.present?
+      -#   .ui.top.right.pointing.dropdown.float-left
+      -#     %i.icon.users.large.pink
+      -#     .menu
+      -#       - activity.users.each do |assistant|
+      -#         .item
+      -#           = assistant.name
+      - if activity.activity_attachments.any?
+        .ui.top.right.pointing.dropdown.float-left
+          %i.icon.chevron.circle.down.large.green
+          .menu
+            - activity.activity_attachments.each do |attachment|
+              .item
+                = link_to attachment.handout.path, attachment.handout.url, target: :_blank, download: ''
+      - if current_user.id == activity.author.id || current_user.admin? || current_user.organizer?
+        = link_to [:edit, activity] do
+          %i.icon.settings.large.orange
+        - unless activity.confirmed?
+          = link_to [activity], method: :delete, data: {confirm: t('.are_you_sure')} do
+            %i.icon.bin.trash.large.red
+    .header.large
+      = link_to activity.title, [activity]
+    .meta
+      = activity.description
+  .extra.content
+    - if current_user.admin? || current_user.organizer?
+      = boolean_status_activity(activity)
+    - else
+      .ui.two.buttons
+        = variable_status(activity)
+    %span.left.floated
+      = activity.category
+      =t('.by')
+      = activity.author.name

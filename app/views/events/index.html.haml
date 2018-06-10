@@ -1,0 +1,32 @@
+%h1.ui.header
+  = link_to t('.title'), events_path
+.row
+  .column.right.floated
+    .ui.segment
+      .row.ui.center.aligned.grid
+        .column
+          - if can? :create, Event
+            = link_to [:new, :event], class: 'ui button green labeled icon' do
+              %i.add.to.calendar.icon
+              = t('.new')
+          = link_to [:calendar, :events], class: 'ui blue labeled icon button' do
+            %i.calendar.icon
+            = t('.calendar')
+      = search_form_for @query do |f|
+        .row.padding-top-20.ui.center.aligned.grid
+          .column
+            .ui.search.floating
+              .ui.icon.input
+                = f.search_field :title_cont, placeholder: t('.search_title'), class: 'prompt'
+                %i.search.icon
+            .ui.search.floating
+              .ui.icon.input
+                = f.search_field :category_or_activity_category_cont, placeholder: t('.search_category'), class: 'prompt'
+                %i.search.icon
+            = f.submit t('.search'), class: 'ui violet button margin-top-20'
+
+.ui.three.column.stackable.grid.container.cards.segment.margin-bottom-120
+- @events.each do |event|
+  = render 'event_card', event: event
+
+= paginate @events

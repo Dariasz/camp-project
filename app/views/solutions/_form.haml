@@ -1,0 +1,7 @@
+= simple_form_for(@solution) do |f|
+  = f.hidden_field :task_id, value: task_for_form.id
+  = f.hidden_field :author_id, value: current_user.id
+  = f.file_field :answer
+
+  .actions
+    = f.submit t('.submit'), class: 'ui teal large button margin-top-40'

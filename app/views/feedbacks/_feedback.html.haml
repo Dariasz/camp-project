@@ -1,0 +1,20 @@
+%td= feedback.event.title
+%td
+  - if feedback.event.activity.present?
+    = feedback.event.activity.title
+    - if feedback.event.activity.user != current_user
+      (
+      = feedback.event.activity.user.name
+      )
+%td= feedback.mark
+%td= feedback.comment
+- if params[:controller] == :my_feedbacks
+  %td.float-right
+    = link_to edit_feedback_path(feedback) do
+      .ui.button.green.small
+        %i.icon.pencil
+          = t('edit')
+    = link_to [feedback], method: :delete, data: {confirm: t('are_you_sure')} do
+      .ui.button.red.small
+        %i.icon.bin.trash
+        = t('.delete')

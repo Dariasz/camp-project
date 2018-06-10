@@ -1,0 +1,81 @@
+.ui.segments
+  .ui.violet.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h1.ui.header
+            = page_title! @sequence.name
+            .sub.header.segment.small
+              = datespan([@sequence.sequence_start, @sequence.sequence_end])
+        - if can? :create, Task
+          .column
+            = link_to [:edit, @sequence], class: 'ui basic violet large icon button' do
+              = t('.edit')
+              %i.pencil.icon
+            = link_to [@sequence], method: :delete,
+                                  data: {confirm: t('.are_you_sure')},
+                                  class: 'ui basic red large icon button' do
+              = t('.delete')
+              %i.trash.icon
+            = link_to [:statistics, @sequence], class: 'ui orange large button' do
+              Statistics
+
+      - if @sequence.show_content?
+        .row
+          .column
+            = link_to @sequence.content.url, class: ' ui right labeled icon violet huge button', download: '', target: :blank do
+              = t('.show_tasks')
+              %i.chevron.right.icon
+
+  .ui.violet.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          .ui.stackable.steps
+            .completed.step
+              = link_to @sequence.edition do
+                .content
+                  .title= t('steps.step_edition')
+                  .description= @sequence.edition.name
+            .active.step
+              .content
+                .title= t('steps.step_serie')
+                .description= @sequence.name
+            .disabled.step
+              .content
+                .title= t('steps.step_task')
+
+  - if @sequence.opened? && @sequence.edition.applied?(current_user.id)
+    .ui.violet.very.padded.segment
+      .ui.equal.width.stackable.grid
+        .row
+          .column
+            %h2.ui.header= t('.send_solutions')
+          - if can? :create, Sequence
+            .column
+              = link_to [:new, :task, sequence: @sequence.id], class: 'ui basic blue large icon button' do
+                = t('.create_task')
+                %i.add.icon
+        - unless @sequence.tasks.count.zero?
+          .row
+            .column
+              %table.ui.violet.table
+                %thead
+                  %tr
+                    %th= t('.task_name')
+                    - if @sequence.opened?
+                      %th= t('.actions')
+                %tbody
+                  - @sequence.tasks.each do |task|
+                    %tr
+                      %td
+                        - if can? :create, Task
+                          = link_to task.name, task
+                        - else
+                          = task.name
+                      %td
+                        - if task.has_user? current_user
+                          .ui.basic.teal.label
+                            = t('.already_sent')
+                        - else
+                          = link_to t('.send_solution'), [:new, :solution, task: task], class: 'ui teal button'

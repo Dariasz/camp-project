@@ -1,0 +1,10 @@
+.ui.floating.dropdown.theme.default.button{:'data-element' => 'menu', :'data-type'=> 'collection'}
+  %span.text
+    - if current_user.locale.present?
+      = current_user.locale.upcase
+    - else
+      = t('layouts.components.navbar.language')
+  .menu.transition.hidden
+    - User::AVAIlABLE_LOCALES.each do |locale|
+      - if locale != current_user.locale.upcase
+        .item.language_select{'data-url' => layouts_language_select_path(locale: locale)}= locale

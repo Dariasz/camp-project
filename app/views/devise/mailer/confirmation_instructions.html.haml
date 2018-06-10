@@ -1,0 +1,11 @@
+%h1.header
+  = t('devise.mailer.welcome', name: @resource.name)
+
+%h5
+  You can confirm your MBL account through the following link:
+  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+
+%h4
+  Best regards,
+  %br
+  %b MBL team

@@ -1,0 +1,9 @@
+= simple_form_for(@feedback) do |f|
+
+  = f.hidden_field :user_id, value: current_user.id
+  = f.input :event_id, collection: event_collection_for_feedback, as: :select, input_html: {class:'ui fluid dropdown'}
+  = f.input :mark, collection: 1..5, input_html: {class:'ui fluid dropdown'}
+  = f.input :comment
+
+  .actions
+    = f.button :submit, "Submit", class: 'ui button margin-top-40'

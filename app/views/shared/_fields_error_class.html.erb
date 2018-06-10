@@ -1,0 +1,9 @@
+<% class_name = model.class.name.downcase %>
+<% field_selectors = [] %>
+<% model.errors.keys.each do |field| %>
+    <% field_selectors.push "##{class_name}_#{field}" if model.errors[field].any? %>
+<% end %>
+
+<%= javascript_tag do %>
+    $("<%= field_selectors.join(',') %>").parents('.field').addClass('error');
+<% end %>

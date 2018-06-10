@@ -1,0 +1,47 @@
+.ui.segment.clearing
+  %h1
+    = t('.title')
+    = link_to [:new, :feedback], class: 'ui button green float-right' do
+      %i.circular.icon.plus
+      = t('.add_feedback')
+    = link_to [:received_feedbacks, :feedbacks], class: 'ui button grey float-right' do
+      %i.icon.circular.browser
+      = t('.received_feedbacks')
+    - if current_user.admin? || current_user.has_role?(:organizer)
+      = link_to [:bad_feedbacks, :feedbacks], class: 'ui button grey float-right' do
+        %i.icon.thumbs.outline.down.circular
+        = t('.bad_feedbacks')
+
+%table.ui.grey.table.margin-bottom-50
+  %thead
+    %tr
+      %th Event title
+      %th Activity title
+      %th Mark
+      %th Comment
+      %th
+
+  %tbody
+    - @my_feedbacks.decorate.each do |feedback|
+      %tr
+        %td= feedback.event.title
+        %td= feedback.event.activity.try(:title)
+        %td
+          - (1..feedback.mark).each do |star|
+            %i.star.icon.yellow
+          - (1..(5-feedback.mark)).each do |empty_star|
+            %i.empty.star.icon.yellow
+          = "(" + feedback.mark.to_s + ")"
+        %td= feedback.comment
+        %td.float-right
+          - unless feedback.event.locked?
+            = link_to edit_feedback_path(feedback) do
+              .ui.button.green.small
+                %i.icon.pencil
+                = t('edit')
+            = link_to [feedback], method: :delete, data: {confirm: t('are_you_sure')} do
+              .ui.button.red.small
+                %i.icon.bin.trash
+                = t('.delete')
+
+= paginate @my_feedbacks

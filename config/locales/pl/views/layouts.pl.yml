@@ -1,0 +1,32 @@
+pl:
+  layouts:
+    components:
+      navbar:
+        sign_in: Zaloguj się
+        sign_up: Zarejestruj się
+        language: Język
+        edit: Edytuj profil
+      sidebar_elements:
+        sidebar_user_elements:
+          user_actions: Opcje
+          logged_as: Zalogowany jako
+          logout: Wyloguj się
+          camp_activities: Obozowe aktywności
+          create_activity: Stwórz aktywność
+          all_activitie: Wszytkie aktywności
+          organizer: Organizacja
+          calendar: Kalendarz
+          events: Wydarzenia
+          new_event: Dodaj wydarzenie
+          users: Użytkownicy
+        sidebar_guest_elements:
+          user_actions: Opcje
+          sign_in: Zaloguj się
+          sign_up: Zarejestruj się
+      footer:
+        created_by: "Stworzone i zaprojektowanae przez  Dariasz"
+    application:
+      meta:
+        keywords: "maths, camp, limit, beyond, activities, math"
+        description: "Math's camp"
+        author: "Dariusz Mrok"

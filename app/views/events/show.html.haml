@@ -1,0 +1,51 @@
+.ui.segment.raised.violet
+  -if @event.all_day?
+    .ui.violet.ribbon.label= t('.all_day')
+  %h1.ui.center.aligned.header.margin-bottom-50
+    = @event.title || @event.category
+    .sub.header
+      %i.time.icon
+      = @event.created_at.to_date
+  .desc.margin-bottom-20= @event.description
+  .ui.cards
+    .violet.card
+      .content
+        .header
+          = t('.starts_at') + ':'
+        .description.desc
+          .ui.two.column.grid
+            .column
+              %i.calendar.icon
+              = t('.date') + ':'
+            .column
+              = @event.starts_at.to_date
+            -unless @event.all_day?
+              .column
+                %i.time.icon
+                = t('.time') + ':'
+              .column
+                = @event.starts_at.strftime('%H:%M')
+    .violet.card
+      .content
+        .header
+          = t('.ends_at') + ':'
+        .description.desc
+          .ui.two.column.grid
+            .column
+              %i.calendar.icon
+              = t('.date') + ':'
+            .column
+              = @event.ends_at.to_date
+            -unless @event.all_day?
+              .column
+                %i.time.icon
+                = t('.time') + ':'
+              .column
+                = @event.ends_at.strftime('%H:%M')
+    .violet.card
+      .content
+        .header
+          = t('.activity') + ':'
+        .description.desc
+          = @event.activity.try(:title) || @event.category
+      = link_to t('.go_to'), activity_path(@event.activity), class:'ui bottom attached pink button' if @event.activity.present?

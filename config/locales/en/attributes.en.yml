@@ -1,0 +1,36 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        first_name: First name
+        last_name: Last name
+        email: E-mail address
+        nationality: Nationality
+        age: Age
+        password: Password
+      activity:
+        title: Title
+        description: Description
+        user_id: Created by
+      event:
+        title: Title
+        activity_id: Activity/Category
+      edition:
+        name: Edition name
+        edition_start: Edition start
+        edition_end: Edition end
+        recruitment_deadline: Recruitment deadline
+        camp_start: Camp start
+        camp_end: Camp end
+        camp_place: Camp place
+      sequence:
+        name: Serie name
+        content: Serie content
+        sequence_start: Serie start
+        sequence_end: Serie end
+      task:
+        name: Task name
+      feedback:
+        comment: Comment
+        mark: Mark
+        event_id: Event

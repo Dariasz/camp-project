@@ -1,0 +1,23 @@
+.ui.middle.aligned.center.aligned.grid
+  .column
+    %h2.ui.green.image.header
+      .content= t('.title')
+
+    .ui.large.form
+      .ui.stacked.segment
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = f.input :email, wrapper: :ui_left_icon_input do
+            %i.icon.user
+            = f.input_field :email, placeholder: t('.email_placeholder')
+
+          = f.input :password, wrapper: :ui_left_icon_input do
+            %i.icon.lock
+            = f.input_field :password, placeholder: t('.password_placeholder')
+
+          = f.input :remember_me, as: :boolean, wrapper: :ui_toggle_checkbox if devise_mapping.rememberable?
+
+          .actions
+            .ui.button.cancel= t('modal.actions.cancel')
+            = f.submit t('.submit'), class: 'ui green button'
+
+        .ui.basic.segment= link_to "Forgot your password?", new_password_path(resource_name), class: "ui button basic green"

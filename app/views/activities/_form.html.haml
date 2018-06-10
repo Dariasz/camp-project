@@ -1,0 +1,11 @@
+= simple_form_for(@activity) do |f|
+  = f.input :title, required: true
+  = f.input :description, label: t('.details')
+  = f.input :category, required: true, collection: categories_for_activities, label: t('.choose_category'), input_html: {id: 'activity_category', class:'ui fluid dropdown'}
+
+  = f.simple_fields_for :activity_attachments do |a|
+    = a.hidden_field :id
+    = a.file_field :handout
+
+  .actions
+    = f.button :submit, t('.submit'), class: 'ui button margin-top-40'

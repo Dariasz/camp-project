@@ -1,0 +1,35 @@
+en:
+  admin:
+    users:
+      index:
+        title: Users
+        add_user: New user
+        presence: Statistics and presence
+      new:
+        title: Create new user
+      edit:
+        Title: Edit user
+      others:
+        title: Other campers
+      presence:
+        title: Statistics and presence
+        index: Go to all users
+      show:
+        title: Dashboard
+        user:
+          header: User
+          name: Name
+          email: Email
+          country: Country
+        my_solutions: My solutions
+        my_editions: My editions
+      dashboard:
+        user_links:
+          header: Useful links
+          database: Database
+          editions: Editions
+          series: Problems
+          user: Account
+          edit_profile: Edit my profile
+          camp: Camp
+          calendar: Calendar

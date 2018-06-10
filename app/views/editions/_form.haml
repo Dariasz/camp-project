@@ -1,0 +1,31 @@
+= simple_form_for(@edition) do |f|
+  .two.fields
+    .field
+      = f.input :name, placeholder: t('.example_name')
+    .field
+      = f.input :camp_place, placeholder: t('.example_place')
+
+  .two.fields
+    .field
+      %label=t('activerecord.attributes.edition.edition_start')
+      = f.date_field :edition_start
+    .field
+      %label=t('activerecord.attributes.edition.edition_end')
+      = f.date_field :edition_end
+
+  .one.field
+    .field
+      %label=t('activerecord.attributes.edition.recruitment_deadline')
+      = f.date_field :recruitment_deadline
+
+  .two.fields
+    .field
+      %label=t('activerecord.attributes.edition.camp_start')
+      = f.date_field :camp_start
+    .field
+      %label=t('activerecord.attributes.edition.camp_end')
+      = f.date_field :camp_end
+
+
+  .actions
+    = f.submit t('.submit'), class: 'ui purple large button margin-top-40'

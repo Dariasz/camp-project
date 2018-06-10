@@ -1,0 +1,8 @@
+.ui.special.popup
+  = simple_form_for @activity_attachment do |f|
+    = f.hidden_field :activity_id, value: @activity.id
+    = f.hidden_field :id
+    = f.file_field :handout
+
+    .actions
+      = f.button :submit, t('.add_attachment'), class: 'ui button margin-top-40'

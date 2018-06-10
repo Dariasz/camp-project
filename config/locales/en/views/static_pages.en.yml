@@ -1,0 +1,49 @@
+ en:
+  static_pages:
+    info_pages:
+      purpose:
+        title: Our purpose
+        description: We, the Maths Beyond Limits’ organising team, believe that the level of mathematical education in schools is insufficient and not suitable for talented youth. The camp aims to create space for development of young maths enthusiasts through working on interesting and demanding subjects. It is designed to encourage participants to share their knowledge and passion with others as well as to enhance cooperation and integration of European mathematical societies. Moreover, we crave to awaken youth’s curiosity and to help them make important habits of creative thinking, self-development, ambition and ability to cooperate. We also want to ensure equal opportunities in access to non-formal education to the best of our ability
+      committee:
+        title: Organising committee
+        consultants_title: Consultants
+        past_title: Past committee members
+        description:
+          ania: Project originator studying  maths joined with physics and computer science within Inter-Faculty Individual Studies in Mathematics and Natural Sciences at University of Warsaw. Non-academically, her biggest hobby is organisation of things, especially the ones related to education. Additionally, she is keen on winter sports, space engineering, foreign languages and psychology.
+          pawel: Project originator studying mathematics at University of Cambridge. Maths-wise keen on any kind of algebra (even the one that may be considered applied), with exuberant love for group theory and commutative diagrams. Apart from that, he’s a great enthusiast of partying, hiking with outdoor cooking, snowboarding and rock climbing.
+          marta: Organiser, camp and website coordinator. Studying mathematics and computer science at University of Warsaw. Apart from maths and web-development, she carries her guitar with her basically everywhere and is always willing to sing. She's also fond of astronomy, does some DIY and always looks for inspiration.
+          grzegorz: Currently studying at University of Cambridge. Definitely obsessed with combinatorics, enjoying Olympiad maths quite a lot as well. An illustration of that is that he learnt cyrillic just to be able to read some russian PDFs on geometry. In his free time he enjoys playing the piano (with Debussy among his favourite composers) and going on much too long mountain hikes.
+          tomek: Currently studying mathematics and computer science at University of Warsaw. Tomek enjoys solving geo problems, juggling and talking about life. He's into hiking (Bieszczady mountains!) and in general - into travelling. If you want to play badminton at night, you should definitely meet up with him!
+          szymon: Currently studying mathematics and computer science at University of Warsaw. He is fond of these academic disciplines, particularly of algebra. He fully devotes himself to whatever he finds interesting. In his free time he enjoys playing football, chess as well as doing other sports, hanging out with friends and watching movies.
+          kobak: Studying mathematics and computer science at University of Warsaw. He cannot resist the lure of number theory, ranging from the Olympiad-style one to those requiring some algebraic or analytic approach. In his free time he strives to live a green and juicy live as well as practice some volleyball or (particularly in summer) yachting. Psychology, philosophy and theology may also be interests of his.
+          sebastian: Studying chemistry at University of Warsaw. His main fields of interests are biochemistry and bioorganic chemistry, which he is developing by working in the lab. Moreover, fascinated about cinematography, especially film recording and editing. Involved in science popularization by organizing chemistry shows and lectures. In his free time enjoys climbing, travelling and DIY.
+          piotr: He studies mathematics and computer science at University of Warsaw. His favorite branch of maths is geometry, especially the projective one. He likes reading (particularly about psychology), running, watching TV series and hanging out with friends.
+          dominik: Currently studying chemistry joined with physics within Inter-Faculty Individual Studies in Mathematics and Natural Sciences at University of Warsaw. He’s the life and soul of the party and takes initiatives when it comes to organising educational and social projects. Apart from chemistry he’s also into maths, molecular cooking and travelling.
+          fornal: Consultant, high school student from Rzeszów, Poland. He is keen on searching unconventional and surprising maths problems, especially in number theory and geometry. In his spare time he enjoys riding a bike and listening to music.
+
+
+      overview:
+        title: Overview
+        para_1: Maths Beyond Limits is a mathematical programme for gifted high school students from around Europe held in September in Milówka, Poland.
+        para_2: Every regular day there are various mathematical activities such as Mathematical Classes, Camper Talks and Time Academic Unscheduled (TAU) as well as non-mathematical Evening Activities and Sports in the beautiful scenes of Beskidy mountains. Mathematical Classes are run in 80-minute-long sessions; they are devoted to some of the most beautiful concepts in mathematics from outside the high school’s curriculum. They concern diverse mathematical fields and there are three sessions at the same time for the participants to choose from, which contributes to the diversity of academic experience participants have.
+        para_3: Camper Talks are 30-minute-long presentations given by participants on topics connected with mathematics. The participants prepare them before the camp and consult them with staff members during the camp. Their objective is to enhance youth’s presentation and communication skills as well as encourage the idea of active contribution to the camp and to the civil society, while inspiring others with their passions. TAU is time designated to work on mathematics independently. During this time all tutors and semitutors make themselves available for 'office hours' and groups often form to work together on problem sets. It was a great opportunity to clarify any points of the classes that were found hard or insufficiently explained. Evening Activities are non-mathematical activities run by participants or organisers in the evenings. They cover wide range of workshops and give opportunities to try something new or improve soft skills.
+        para_4: There are also two special days when we do something else, for example go for a mountain hike or have fun competing in a mathematical match. Apart from being a great place to explore the beautiful world of mathematics, MBL is also a supportive community of broad-minded people. Meeting people who share your passion is always a wonderful experience and results in great, sometimes lifelong, friendships. The evenings and afternoons are filled with non-mathematical activities run by both the staff and the students. You can either choose to attend some of them, hang out with friends, prepare for the next-day classes or discuss some interesting topics with tutors and peers. We adhere to a profound belief that the freedom of choice is exactly what makes you benefit the most from this camp. Students can apply as regular participants or as semitutors who differ from the former in that they run their own Mathematical Classes. People who graduated from high school may apply as tutors. Click
+        here: here
+        para_5: for more information about this year’s recruitment process.
+
+      recruitment:
+        title: Recruitment
+        
+      supporters:
+        title: Our supporters
+        visit_site: "Visit their site at "
+      sponsors:
+        title: Become our sponsor!
+        para_1: We try our best to keep the camp free of charge, to let everyone attend it, regardless social and economic background. It is not easy to find funding though. Therefore, we kindly ask for your support. If you know someone willing to support such educational initiative or you want to do it yourself please contact us for more information!
+        para_2: We have a detailed sponsor offer, which included generous gratification for supporting us. We offer promotion of the company among the participants and prospective applicants, letting a representant of the sponsor run a workshop session at the camp, put logos on our materials (tshirts, hoodies, promotional videos, camp brochure) and many more!
+      contact:
+        title: Contact us
+      index:
+        title: Homepage
+      faq:
+        title: Help & FAQ

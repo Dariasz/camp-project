@@ -1,0 +1,56 @@
+.ui.segments
+  .ui.purple.very.padded.segment
+    %h1.ui.header
+      = link_to t('.title'), [:editions]
+    - if can? :create, Edition
+      .row
+        .column
+          = link_to [:new, :edition], class: 'ui button purple labeled icon' do
+            %i.add.circle.icon
+            = t('.new')
+    -# = search_form_for @query do |f|
+    -#   .row.padding-top-20.ui.center.aligned.grid
+    -#     .column
+    -#       .ui.search.floating
+    -#         .ui.icon.input
+    -#           = f.search_field :name_cont, placeholder: t('.search_name'), class: 'prompt'
+    -#           %i.search.icon
+    -#       = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+  .ui.purple.very.padded.segment
+    .ui.equal.width.vertically.divided.stackable.grid
+      - @editions.each do |edition|
+        .row
+          .column
+            %h1.header
+              = link_to edition do
+                = edition.name
+                %i.chevron.right.icon
+            .subheader
+              - if edition.recruitment?
+                = t('.deadline')
+                = pretty_date(edition.recruitment_deadline)
+
+          - if edition.can_apply?(current_user.id)
+            .column
+              = link_to [:apply_for, edition], class: 'ui purple large icon button', method: :put do
+                = t('.apply')
+                %i.right.chevron.icon
+
+          .column
+            .ui.container
+              .ui.horizontal.purple.bulleted.large.list
+                - edition.sequences.each do |seq|
+                  .item= link_to seq.name, seq
+
+          .column
+            - if can? :create, Edition
+              %td
+                = link_to [:edit, edition], class: 'ui purple basic small icon button'  do
+                  = t('.edit')
+                  %i.pencil.icon
+                = link_to edition, class: 'ui red basic small icon button'  do
+                  = t('.delete')
+                  %i.trash.icon
+
+    = paginate @editions

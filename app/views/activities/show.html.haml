@@ -1,0 +1,95 @@
+.ui.segment.raised.very.padded{class: class_for_activity(@activity)}
+  %h1.ui.center.aligned.header.margin-bottom-50
+    = @activity.title
+    .sub.header.segment.small
+      %i.time.icon
+      = pretty_datetime(@activity.created_at)
+      %i.user.icon
+      = @activity.user.first_name
+      = @activity.user.last_name
+      - if current_user.id == @activity.user.id || current_user.admin? || current_user.has_role?(:organizer)
+        = link_to [:edit, @activity] do
+          %i.icon.settings.orange.large
+        %i.icon.users.assistants.link.brown.large
+          = render 'assistants_popup'
+        - unless @activity.confirmed?
+          = link_to [@activity], method: :delete, data: {confirm: t('.are_you_sure')} do
+            %i.icon.bin.trash.large.red
+
+  .desc.margin-bottom-20= @activity.description
+
+  .ui.right.labeled.button.center
+    .ui.green.button
+      = t('.category')
+    .ui.basic.left.pointing.green.label
+      = @activity.category
+
+
+  - variable_columns.each do |column|
+    - if @activity.try(column).present?
+      .ui.right.labeled.button
+        .ui.violet.button
+          = t(".#{column.to_s}")
+        .ui.basic.left.pointing.blue.label
+          = @activity.try(column)
+
+  - if current_user.admin? || current_user.has_role?(:organizer)
+    .padding-top-10
+      = boolean_status_activity(@activity)
+  - else
+    .ui.two.buttons
+      = variable_status(@activity)
+
+  .ui.center.aligned.grid
+    .ui.sixteen.wide.column
+      .font-size-25
+        = t('.materials')+':'
+        - if current_user.admin? || current_user.has_role?(:organizer)
+          %i.icon.plus.new-attachment.link
+          = render 'new_modal'
+
+      .ui.padding-left-10
+        %ol
+        - @activity.activity_attachments.each do |attachment|
+          - if attachment.handout.path.present?
+            %li
+              = attachment.handout.path
+              = link_to attachment.handout.url, download: '' do
+                %i.icon.arrow.down
+              - if current_user.id == @activity.user.id || current_user.admin?
+                = link_to [attachment], method: :delete, data: {confirm: t('.are_you_sure')} do
+                  %i.icon.bin.trash
+
+    - if current_user.id == @activity.user.id || @activity.assistant_ids.include?(current_user.id) || current_user.admin? || current_user.has_role?(:organizer)
+      .ui.twelve.wide.column
+        .font-size-25
+          = t('.Feedbacks_for_activity')
+          = '( ' + t('.average_mark')
+          = @average_mark.to_s + ' )'
+          .ui.comments
+            - @feedbacks.each do |feedback|
+              .comment
+                .content
+                  .author
+                    = feedback.event.title
+                    - (1..feedback.mark).each do |star|
+                      %i.star.icon.yellow
+                    - (1..(5-feedback.mark)).each do |empty_star|
+                      %i.empty.star.icon.yellow
+                  .text= feedback.comment
+
+  - if @activity.confirmed
+    .ui.divider
+    %span.text-center
+      %h3
+        =t('.accepted_by')
+        = @activity.acceptance.try(:name)
+        =t('.at')
+        = pretty_datetime(@activity.updated_at)
+  .ui.divider
+  %span.text-center
+    %h3
+      = t('.contact')
+      = @activity.user.name
+      %br
+      = @activity.user.email

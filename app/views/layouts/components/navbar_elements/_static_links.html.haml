@@ -1,0 +1,34 @@
+.ui.pointing.dropdown.item.desktop-display
+  %span.text= t('layouts.components.navbar.static.about.title')
+  %i.dropdown.icon
+  .menu
+    = link_to purpose_path, class: 'item' do
+      = t('layouts.components.navbar.static.about.purpose')
+    = link_to committee_path, class: 'item' do
+      = t('layouts.components.navbar.static.about.committee')
+
+.ui.pointing.dropdown.item.desktop-display
+  %span.text= t('layouts.components.navbar.static.other_info.title')
+  %i.dropdown.icon
+  .menu
+    = link_to overview_path, class: 'item' do
+      = t('layouts.components.navbar.static.other_info.overview')
+    = link_to supporters_path, class: 'item' do
+      = t('layouts.components.navbar.static.other_info.supporters')
+    = link_to testimonials_path, class: 'item' do
+      = t('layouts.components.navbar.static.other_info.testimonials')
+    .item
+      %i.dropdown.icon
+      %span.text= t('layouts.components.navbar.static.previous.editions')
+      .menu
+        = link_to mbl2016_path, class: 'item' do
+          = t('layouts.components.navbar.static.previous.mbl2016')
+        = link_to mbl2017_path, class: 'item' do
+          = t('layouts.components.navbar.static.previous.mbl2017')
+        = link_to mbl2018_path, class: 'item' do
+          = t('layouts.components.navbar.static.previous.mbl2018')
+
+= link_to recruitment_path, class: 'item desktop-display' do
+  = t('layouts.components.navbar.static.recruitment')
+= link_to contact_path, class: 'item desktop-display' do
+  = t('layouts.components.navbar.static.contact')

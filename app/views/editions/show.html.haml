@@ -1,0 +1,97 @@
+.ui.purple.segments
+  .ui.purple.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h1.ui.header
+            = page_title! @edition.name
+            .sub.header.segment.small
+              =@edition.camp_place
+
+        - if can? :create, Edition
+          .column
+            = link_to [:edit, @edition], class: 'ui basic violet large icon button' do
+              = t('.edit')
+              %i.pencil.icon
+            = link_to [@edition], method: :delete,
+                                  data: {confirm: t('.are_you_sure')},
+                                  class: 'ui basic red large icon button' do
+              = t('.delete')
+              %i.trash.icon
+
+        - if @edition.can_apply?(current_user.id)
+          .column
+            = link_to %i[apply_for edition], class: 'ui purple large icon button', method: :put do
+              = t('.apply')
+              %i.right.chevron.icon
+  .ui.purple.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %table.ui.selectable.horizontally.divided.table
+            %tbody
+              %tr
+                %td= t('.edition')
+                %td.basic
+                  = datespan [@edition.edition_start, @edition.edition_end]
+              %tr
+                %td= t('.recruitment_deadline')
+                %td= pretty_date @edition.recruitment_deadline
+              %tr
+                %td= t('.camp')
+                %td= datespan [@edition.camp_start, @edition.camp_end]
+        .column
+          .ui.steps
+            .active.step
+              .content
+                %h4= t('steps.step_edition')
+                .description= @edition.name
+            .disabled.step
+              .content
+                %h4= t('steps.step_serie')
+
+  .ui.purple.very.padded.segment
+    .ui.equal.width.stackable.grid
+      .row
+        .column
+          %h2.ui.header
+            = @edition.name
+            = t('.series')
+        - if can? :new, Sequence
+          .column
+            = link_to [:new, :sequence, edition: @edition.id], class: 'ui purple large icon button' do
+              = t('.create_serie')
+              %i.add.icon
+      - @edition.sequences.each do |seq|
+        .ui.two.column.centered.row
+          .column
+            .two.ui.buttons
+              = link_to seq, class: 'ui icon violet basic large button' do
+                = seq.name
+                %i.right.triangle.icon
+              = link_to seq.content.url, target: :blank, class: 'ui violet icon large button' do
+                = t('.view_pdf')
+                %i.right.triangle.icon
+
+
+
+  - if can? :create, Edition
+    .ui.purple.very.padded.segment
+      .ui.equal.width.stackable.grid
+        .row
+          .column
+            %h2.ui.header
+              = t('.participants')
+            .row
+              .column
+                = simple_form_for @edition do |f|
+                  .ui.equal.width.stackable.grid
+                    = f.simple_fields_for :user_editions do |u_e|
+                      .row
+                        .column
+                          %b= u_e.object.name
+                          = " (" + u_e.object.role + ")"
+                        .column.inline.fields= u_e.input :role, collection: UserEdition.roles.keys, label: false
+                    .row
+                      .column
+                        = f.submit t('.set_roles'), class: 'ui green button small'

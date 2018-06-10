@@ -1,0 +1,33 @@
+en:
+  sequences:
+    index:
+      title: Problems
+      search_name: Search name
+      new: Add serie
+      show: Show details
+      edit: Edit
+      delete: Delete
+      search: Search
+      show_tasks: View pdf
+      submit_solutions: Submit solutions
+    show:
+      tasks_content: Show tasks content (pdf)
+      create_task: Create new task
+      edit: Edit this serie
+      delete: Delete this serie
+      send_solutions: Send solutions
+      task_name: Task
+      actions: Actions
+      already_sent: Solution already sent
+      send_solution: Send solution
+      show_tasks: View pdf
+    statistics:
+      title: Statistics
+      users: Users
+      sum: Sum
+    form:
+      submit: Submit
+    new:
+      title: New serie
+    edit:
+      title: Edit serie

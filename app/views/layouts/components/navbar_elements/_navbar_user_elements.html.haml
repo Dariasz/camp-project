@@ -1,0 +1,13 @@
+-#.item.desktop-display
+-#  = render '/layouts/components/navbar_elements/language_select'
+.ui.item.pointing.dropdown.last.desktop-display
+  %span.text
+    = current_user.first_name
+  %i.icon.setting
+  .menu.transition.hidden.last
+    = render '/layouts/components/sidebar_elements/sidebar_user_elements'
+
+%a.item.user-menu.center.mobile-display
+  %i.icon.setting
+
+

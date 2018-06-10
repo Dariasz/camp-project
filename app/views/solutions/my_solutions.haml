@@ -1,0 +1,38 @@
+.ui.segments
+  .ui.teal.very.padded.segment
+    .row
+      %h1.ui.header
+        = link_to t('.title'), %i[my_solutions solutions]
+      -# = search_form_for @query do |f|
+      -#   .row.padding-top-20.ui.center.aligned.grid
+      -#     .column
+      -#       .ui.search.floating
+      -#         .ui.icon.input
+      -#           = f.search_field :name_cont, placeholder: t('.search_name'), class: 'prompt'
+      -#           %i.search.icon
+      -#       = f.submit t('.search'), class: 'ui blue button margin-top-20'
+
+  .ui.teal.very.padded.segment
+    .row
+      .column
+        %table.ui.teal.table
+          %thead
+            %tr
+            %th= t('.task_name')
+            %th= t('.answer')
+            %th= t('.actions')
+
+          %tbody
+            - @my_solutions.each do |solution|
+              %tr
+                %td= solution.task.full_task_name
+                %td
+                  .item
+                    .header= solution.task.full_task_name
+
+                %td
+                  = link_to [:edit, solution], class: 'ui basic blue small icon button' do
+                    = t('.edit')
+                    %i.chevron.right.icon
+    .row
+      = paginate @solutions

@@ -1,0 +1,28 @@
+.ui.card.violet
+  .content
+    - unless event.locked
+      .ui.green.ribbon.label= t('.unlocked')
+    .right.floated
+      - if event.activity.present?
+        = link_to [event.activity] do
+          %i.icon.find.pink
+      = link_to [event] do
+        %i.icon.eye.violet
+      - if can? :create, Event
+        = link_to [:edit, event] do
+          %i.icon.pencil.blue
+        = link_to [event], method: :delete, data: {confirm: t('are_you_sure')} do
+          %i.icon.bin.trash.red
+
+    .header.large
+      = link_to event.title, [event]
+    .meta
+      = pretty_datetime(event.starts_at)
+      %br
+      = pretty_datetime(event.ends_at)
+  .extra.content
+    - if can? :create, Event
+      = boolean_status(event)
+    %span= event.try(:activity).try(:title)
+    .right.floated
+      .ui.grey.circular.label= event.users.count
